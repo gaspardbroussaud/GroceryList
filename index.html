@@ -215,29 +215,25 @@ const getToken = () => localStorage.getItem('gh_token') || '';
 const setToken = t => localStorage.setItem('gh_token', t.trim());
 
 // ── GitHub ────────────────────────────────────────────────────────────────────────────
-function ghHeaders(extra) {
-  return Object.assign({
-    Authorization: `Bearer ${getToken()}`,
-    'X-GitHub-Api-Version': '2022-11-28'
-  }, extra);
-}
+const RAW_URL = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/${GH_FILE}`;
+const GH_HEADERS = () => ({
+  Authorization: `Bearer ${getToken()}`,
+  'X-GitHub-Api-Version': '2022-11-28',
+  'Content-Type': 'application/json'
+});
 
 async function loadFromGitHub() {
   try {
     if (!getToken()) return false;
-    // Fetch raw JSON text directly — no base64 involved
-    const r = await fetch(GH_API, {
-      headers: ghHeaders({ Accept: 'application/vnd.github.raw+json' })
-    });
+    // Read raw text directly — no base64, no encoding issue
+    const r = await fetch(RAW_URL + '?t=' + Date.now(), { cache: 'no-store' });
     if (!r.ok) throw new Error(r.status);
-    // Also grab SHA from response headers for future saves
-    const shaHeader = r.headers.get('x-github-media-type'); // won't have SHA here
-    // Get SHA via a second lightweight call
-    const meta = await fetch(GH_API, { headers: ghHeaders() });
-    if (meta.ok) { const m = await meta.json(); ghSha = m.sha; }
-    const json = await r.json(); // r is the raw text parsed as JSON
+    const json = await r.json();
     recipes = json.recipes || [];
     localStorage.setItem('recipes', JSON.stringify(recipes));
+    // Fetch SHA (needed for PUT writes)
+    const meta = await fetch(GH_API, { headers: GH_HEADERS() });
+    if (meta.ok) { const m = await meta.json(); ghSha = m.sha; }
     return true;
   } catch(e) { console.error('loadFromGitHub', e); return false; }
 }
@@ -245,18 +241,14 @@ async function loadFromGitHub() {
 async function saveToGitHub() {
   if (!getToken()) return false;
   try {
-    // Encode UTF-8 properly using TextEncoder
+    // Encode UTF-8 bytes to base64 via TextEncoder (handles all accents correctly)
     const jsonStr = JSON.stringify({ recipes }, null, 2);
     const bytes = new TextEncoder().encode(jsonStr);
     let bin = '';
     bytes.forEach(b => bin += String.fromCharCode(b));
     const content = btoa(bin);
     const body = { message: 'Mise a jour recettes', content, ...(ghSha ? { sha: ghSha } : {}) };
-    const r = await fetch(GH_API, {
-      method: 'PUT',
-      headers: ghHeaders({ 'Content-Type': 'application/json' }),
-      body: JSON.stringify(body)
-    });
+    const r = await fetch(GH_API, { method: 'PUT', headers: GH_HEADERS(), body: JSON.stringify(body) });
     if (!r.ok) throw new Error(r.status);
     const data = await r.json();
     ghSha = data.content.sha;
@@ -421,9 +413,9 @@ function deleteRecipe(id) {
 }
 
 // ── Modal ────────────────────────────────────────────────────────────────────
-function openAdd() { editingId=null; tmpIngredients=[]; document.getElementById('modal-title').textContent='Nouvelle recette'; renderModalBody(''); showModal(); }
+function openAdd() { editingId=null; tmpIngredients=[]; editingIngrIdx=null; document.getElementById('modal-title').textContent='Nouvelle recette'; renderModalBody(''); showModal(); }
 function openEdit(id) {
-  const r=recipes.find(r=>r.id===id); editingId=id; tmpIngredients=r.ingredients.map(i=>({...i}));
+  const r=recipes.find(r=>r.id===id); editingId=id; tmpIngredients=r.ingredients.map(i=>({...i})); editingIngrIdx=null;
   document.getElementById('modal-title').textContent='Modifier la recette'; renderModalBody(r.name); showModal();
 }
 function renderModalBody(name) {
@@ -445,11 +437,46 @@ function renderModalBody(name) {
     <div style="height:8px"></div>`;
   refreshIngrList();
 }
+let editingIngrIdx = null;
+
 function refreshIngrList() {
   document.getElementById('ingr-list').innerHTML = tmpIngredients.length===0
     ? `<div style="color:var(--text3);font-size:13px;text-align:center;padding:8px 0 12px">Aucun ingrédient ajouté</div>`
-    : tmpIngredients.map((ing,i)=>`<div class="ingr-row"><span>${ing.name}</span><span class="qty">${fmtQty(ing.qty)}</span><span class="unit">${ing.unit}</span><button class="del-btn" onclick="removeIngr(${i})">×</button></div>`).join('');
+    : tmpIngredients.map((ing,i) => editingIngrIdx===i ? `
+      <div class="ingr-row" style="grid-template-columns:1fr;gap:8px;padding:10px">
+        <input id="edit-ingr-name" value="${ing.name}" placeholder="Ingrédient" autocomplete="off">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <input id="edit-ingr-qty" type="number" min="0" step="any" value="${ing.qty}" placeholder="Quantité">
+          <select id="edit-ingr-unit">${UNITS.map(u=>`<option ${u===ing.unit?'selected':''}>${u}</option>`).join('')}</select>
+        </div>
+        <div style="display:flex;gap:6px">
+          <button class="btn btn-accent" style="flex:1;justify-content:center" onclick="saveIngrEdit(${i})">✓ OK</button>
+          <button class="btn" style="flex:1;justify-content:center" onclick="cancelIngrEdit()">Annuler</button>
+        </div>
+      </div>` : `
+      <div class="ingr-row">
+        <span>${ing.name}</span>
+        <span class="qty">${fmtQty(ing.qty)}</span>
+        <span class="unit">${ing.unit}</span>
+        <div style="display:flex;gap:4px">
+          <button class="del-btn" style="background:rgba(200,169,110,0.12);color:var(--accent);font-size:13px" onclick="editIngr(${i})">✏</button>
+          <button class="del-btn" onclick="removeIngr(${i})">×</button>
+        </div>
+      </div>`
+    ).join('');
 }
+
+function editIngr(i) { editingIngrIdx=i; refreshIngrList(); }
+function cancelIngrEdit() { editingIngrIdx=null; refreshIngrList(); }
+function saveIngrEdit(i) {
+  const name=document.getElementById('edit-ingr-name').value.trim();
+  const qty=parseFloat(document.getElementById('edit-ingr-qty').value);
+  const unit=document.getElementById('edit-ingr-unit').value;
+  if (!name||isNaN(qty)||qty<=0) { showToast('Remplissez le nom et la quantité'); return; }
+  tmpIngredients[i]={name,qty,unit};
+  editingIngrIdx=null; refreshIngrList();
+}
+
 function addIngr() {
   const name=document.getElementById('new-ingr-name').value.trim();
   const qty=parseFloat(document.getElementById('new-ingr-qty').value);
@@ -459,7 +486,7 @@ function addIngr() {
   document.getElementById('new-ingr-name').value=''; document.getElementById('new-ingr-qty').value='';
   document.getElementById('new-ingr-name').focus(); refreshIngrList();
 }
-function removeIngr(i) { tmpIngredients.splice(i,1); refreshIngrList(); }
+function removeIngr(i) { tmpIngredients.splice(i,1); editingIngrIdx=null; refreshIngrList(); }
 function saveRecipe() {
   const name=document.getElementById('recipe-name').value.trim();
   if (!name) { showToast('Donnez un nom à la recette'); return; }
