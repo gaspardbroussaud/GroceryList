@@ -225,12 +225,24 @@ async function ghFetch(method, body) {
   return r.json();
 }
 
+function b64decode(str) {
+  const bin = atob(str.replace(/\n/g, ''));
+  const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
+  return new TextDecoder().decode(bytes);
+}
+function b64encode(str) {
+  const bytes = new TextEncoder().encode(str);
+  let bin = '';
+  bytes.forEach(b => bin += String.fromCharCode(b));
+  return btoa(bin);
+}
+
 async function loadFromGitHub() {
   try {
     const data = await ghFetch('GET');
     if (!data) return false;
     ghSha = data.sha;
-    const json = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g, '')))));
+    const json = JSON.parse(b64decode(data.content));
     recipes = json.recipes || [];
     localStorage.setItem('recipes', JSON.stringify(recipes));
     return true;
@@ -240,8 +252,8 @@ async function loadFromGitHub() {
 async function saveToGitHub() {
   if (!getToken()) return false;
   try {
-    const content = btoa(unescape(encodeURIComponent(JSON.stringify({ recipes }, null, 2))));
-    const body = { message: 'Mise à jour recettes', content, ...(ghSha ? { sha: ghSha } : {}) };
+    const content = b64encode(JSON.stringify({ recipes }, null, 2));
+    const body = { message: 'Mise a jour recettes', content, ...(ghSha ? { sha: ghSha } : {}) };
     const data = await ghFetch('PUT', body);
     ghSha = data.content.sha;
     return true;
