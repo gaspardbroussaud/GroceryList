@@ -206,7 +206,7 @@ const UNITS = ['g','kg','ml','L','cl','tsp','tbsp','tasse','unité(s)','tranche(
 const GH_OWNER = 'gaspardbroussaud';
 const GH_REPO  = 'GroceryList';
 const GH_FILE  = 'recettes.json';
-const GH_API   = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}`;
+const GH_API   = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_FILE}?ref=data`;
 
 let recipes = [], selected = new Set(), ghSha = null;
 let currentScreen = 'recettes', editingId = null, tmpIngredients = [], crossedItems = new Set();
@@ -215,7 +215,7 @@ const getToken = () => localStorage.getItem('gh_token') || '';
 const setToken = t => localStorage.setItem('gh_token', t.trim());
 
 // ── GitHub ────────────────────────────────────────────────────────────────────────────
-const RAW_URL = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/${GH_FILE}`;
+const RAW_URL = `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/data/${GH_FILE}`;
 const GH_HEADERS = () => ({
   Authorization: `Bearer ${getToken()}`,
   'X-GitHub-Api-Version': '2022-11-28',
@@ -247,7 +247,7 @@ async function saveToGitHub() {
     let bin = '';
     bytes.forEach(b => bin += String.fromCharCode(b));
     const content = btoa(bin);
-    const body = { message: 'Mise a jour recettes', content, ...(ghSha ? { sha: ghSha } : {}) };
+    const body = { message: 'Mise a jour recettes', content, branch: 'data', ...(ghSha ? { sha: ghSha } : {}) };
     const r = await fetch(GH_API, { method: 'PUT', headers: GH_HEADERS(), body: JSON.stringify(body) });
     if (!r.ok) throw new Error(r.status);
     const data = await r.json();
