@@ -1,3 +1,20 @@
 {
-  "recipes": []
+  "recipes": [
+    {
+      "id": "1778675079427",
+      "name": "Saumon épinards",
+      "ingredients": [
+        {
+          "name": "Épinards",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Saumon",
+          "qty": 2,
+          "unit": "unité(s)"
+        }
+      ]
+    }
+  ]
 }
