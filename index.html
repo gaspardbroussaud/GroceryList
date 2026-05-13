@@ -225,15 +225,30 @@ async function ghFetch(method, body) {
   return r.json();
 }
 
+// Encode a JS string to base64, handling all unicode correctly
+function toBase64(str) {
+  // Replace every non-ASCII char with its \uXXXX escape before btoa
+  const ascii = str.replace(/[\u0080-\uFFFF]/g, c =>
+    '\\u' + c.charCodeAt(0).toString(16).padStart(4, '0')
+  );
+  return btoa(ascii);
+}
+
+// Decode base64 to JS string, restoring \uXXXX escapes
+function fromBase64(b64) {
+  const ascii = atob(b64.replace(/\n/g, ''));
+  return ascii.replace(/\\u([0-9a-fA-F]{4})/g, (_, h) =>
+    String.fromCharCode(parseInt(h, 16))
+  );
+}
+
 async function loadFromGitHub() {
   try {
     if (!getToken()) return false;
     const data = await ghFetch('GET');
     if (!data) return false;
     ghSha = data.sha;
-    // Decode base64 → pure ASCII JSON (accents stored as \uXXXX escapes)
-    const jsonStr = atob(data.content.replace(/\n/g, ''));
-    const json = JSON.parse(jsonStr);
+    const json = JSON.parse(fromBase64(data.content));
     recipes = json.recipes || [];
     localStorage.setItem('recipes', JSON.stringify(recipes));
     return true;
@@ -243,9 +258,7 @@ async function loadFromGitHub() {
 async function saveToGitHub() {
   if (!getToken()) return false;
   try {
-    // JSON.stringify escapes all non-ASCII as \uXXXX → pure ASCII → btoa works everywhere
-    const jsonStr = JSON.stringify({ recipes }, null, 2);
-    const content = btoa(jsonStr);
+    const content = toBase64(JSON.stringify({ recipes }, null, 2));
     const body = { message: 'Mise a jour recettes', content, ...(ghSha ? { sha: ghSha } : {}) };
     const data = await ghFetch('PUT', body);
     ghSha = data.content.sha;
