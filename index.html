@@ -215,40 +215,27 @@ const getToken = () => localStorage.getItem('gh_token') || '';
 const setToken = t => localStorage.setItem('gh_token', t.trim());
 
 // ── GitHub ────────────────────────────────────────────────────────────────────────────
-async function ghFetch(method, body) {
-  const token = getToken();
-  if (!token) return null;
-  const opts = { method, headers: { Authorization: `Bearer ${token}`, 'X-GitHub-Api-Version': '2022-11-28', 'Content-Type': 'application/json' } };
-  if (body) opts.body = JSON.stringify(body);
-  const r = await fetch(GH_API, opts);
-  if (!r.ok) throw new Error(r.status);
-  return r.json();
-}
-
-// Encode a JS string to base64, handling all unicode correctly
-function toBase64(str) {
-  // Replace every non-ASCII char with its \uXXXX escape before btoa
-  const ascii = str.replace(/[\u0080-\uFFFF]/g, c =>
-    '\\u' + c.charCodeAt(0).toString(16).padStart(4, '0')
-  );
-  return btoa(ascii);
-}
-
-// Decode base64 to JS string, restoring \uXXXX escapes
-function fromBase64(b64) {
-  const ascii = atob(b64.replace(/\n/g, ''));
-  return ascii.replace(/\\u([0-9a-fA-F]{4})/g, (_, h) =>
-    String.fromCharCode(parseInt(h, 16))
-  );
+function ghHeaders(extra) {
+  return Object.assign({
+    Authorization: `Bearer ${getToken()}`,
+    'X-GitHub-Api-Version': '2022-11-28'
+  }, extra);
 }
 
 async function loadFromGitHub() {
   try {
     if (!getToken()) return false;
-    const data = await ghFetch('GET');
-    if (!data) return false;
-    ghSha = data.sha;
-    const json = JSON.parse(fromBase64(data.content));
+    // Fetch raw JSON text directly — no base64 involved
+    const r = await fetch(GH_API, {
+      headers: ghHeaders({ Accept: 'application/vnd.github.raw+json' })
+    });
+    if (!r.ok) throw new Error(r.status);
+    // Also grab SHA from response headers for future saves
+    const shaHeader = r.headers.get('x-github-media-type'); // won't have SHA here
+    // Get SHA via a second lightweight call
+    const meta = await fetch(GH_API, { headers: ghHeaders() });
+    if (meta.ok) { const m = await meta.json(); ghSha = m.sha; }
+    const json = await r.json(); // r is the raw text parsed as JSON
     recipes = json.recipes || [];
     localStorage.setItem('recipes', JSON.stringify(recipes));
     return true;
@@ -258,9 +245,20 @@ async function loadFromGitHub() {
 async function saveToGitHub() {
   if (!getToken()) return false;
   try {
-    const content = toBase64(JSON.stringify({ recipes }, null, 2));
+    // Encode UTF-8 properly using TextEncoder
+    const jsonStr = JSON.stringify({ recipes }, null, 2);
+    const bytes = new TextEncoder().encode(jsonStr);
+    let bin = '';
+    bytes.forEach(b => bin += String.fromCharCode(b));
+    const content = btoa(bin);
     const body = { message: 'Mise a jour recettes', content, ...(ghSha ? { sha: ghSha } : {}) };
-    const data = await ghFetch('PUT', body);
+    const r = await fetch(GH_API, {
+      method: 'PUT',
+      headers: ghHeaders({ 'Content-Type': 'application/json' }),
+      body: JSON.stringify(body)
+    });
+    if (!r.ok) throw new Error(r.status);
+    const data = await r.json();
     ghSha = data.content.sha;
     return true;
   } catch(e) { console.error('saveToGitHub', e); return false; }
