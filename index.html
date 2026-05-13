@@ -230,7 +230,7 @@ async function loadFromGitHub() {
     const data = await ghFetch('GET');
     if (!data) return false;
     ghSha = data.sha;
-    const json = JSON.parse(atob(data.content.replace(/\n/g, '')));
+    const json = JSON.parse(decodeURIComponent(escape(atob(data.content.replace(/\n/g, '')))));
     recipes = json.recipes || [];
     localStorage.setItem('recipes', JSON.stringify(recipes));
     return true;
