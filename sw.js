@@ -1,4 +1,4 @@
-const CACHE = 'recettes-v10';
+const CACHE = 'recettes-v11';
 const ASSETS = ['./', './index.html', './manifest.json', './icons/icon-192.png', './icons/icon-512.png'];
 
 self.addEventListener('install', e => {
@@ -12,5 +12,11 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
+  const url = e.request.url;
+  // Never cache GitHub API or raw content — always fetch live
+  if (url.includes('github.com') || url.includes('githubusercontent.com')) {
+    e.respondWith(fetch(e.request));
+    return;
+  }
   e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
 });
