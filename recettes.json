@@ -1,15 +1,3 @@
 {
-  "recipes": [
-    {
-      "id": "1778675136496",
-      "name": "Fêta",
-      "ingredients": [
-        {
-          "name": "Fêta",
-          "qty": 200,
-          "unit": "g"
-        }
-      ]
-    }
-  ]
+  "recipes": []
 }
