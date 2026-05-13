@@ -1,3 +1,30 @@
 {
-  "recipes": []
+  "recipes": [
+    {
+      "id": "1778677188049",
+      "name": "Pâtes saumon épinards fêta",
+      "ingredients": [
+        {
+          "name": "Serpentini",
+          "qty": 250,
+          "unit": "g"
+        },
+        {
+          "name": "Saumon",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Épinards",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Fêta",
+          "qty": 200,
+          "unit": "g"
+        }
+      ]
+    }
+  ]
 }
