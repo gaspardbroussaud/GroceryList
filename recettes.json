@@ -2,10 +2,10 @@
   "recipes": [
     {
       "id": "1778663568322",
-      "name": "Pâtes saumon épinards fêta",
+      "name": "PÃ¢tes saumon Ã©pinards fÃªta",
       "ingredients": [
         {
-          "name": "Fêta",
+          "name": "FÃªta",
           "qty": 200,
           "unit": "g"
         },
@@ -17,11 +17,27 @@
         {
           "name": "Saumon",
           "qty": 2,
-          "unit": "unité(s)"
+          "unit": "unitÃ©(s)"
         },
         {
-          "name": "Épinards",
+          "name": "Ãpinards",
           "qty": 500,
+          "unit": "g"
+        }
+      ]
+    },
+    {
+      "id": "1778663868402",
+      "name": "Pâtes légumes",
+      "ingredients": [
+        {
+          "name": "pâtes",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "légumes",
+          "qty": 300,
           "unit": "g"
         }
       ]
