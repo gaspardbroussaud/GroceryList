@@ -268,12 +268,11 @@ async function syncNow() {
 
 // ── Local ────────────────────────────────────────────────────────────────────
 function loadLocal() {
-  try { recipes = JSON.parse(localStorage.getItem('recipes') || '[]'); } catch(e) { recipes = []; }
+  // Only restore selected state locally — recipes always come from GitHub
   try { selected = new Set(JSON.parse(localStorage.getItem('selected') || '[]')); } catch(e) { selected = new Set(); }
 }
 
 async function save() {
-  localStorage.setItem('recipes', JSON.stringify(recipes));
   localStorage.setItem('selected', JSON.stringify([...selected]));
   const btn = document.getElementById('sync-btn');
   btn.classList.add('syncing'); btn.classList.remove('ok','err');
@@ -362,10 +361,23 @@ function renderCourses() {
   el.innerHTML = `
     <div class="row-between" style="margin-bottom:14px">
       <span class="pill">${items.length} article${items.length>1?'s':''}</span>
-      ${done>0?`<button class="btn btn-sm" onclick="clearCrossed()">Effacer cochés</button>`:''}
+      <div style="display:flex;gap:6px">
+        ${done>0?`<button class="btn btn-sm" onclick="clearCrossed()">Effacer cochés</button>`:''}
+        <button class="btn btn-sm" onclick="copyList()" id="copy-btn">&#128203; Copier</button>
+      </div>
     </div>
     ${items.map(it=>{const key=it.name+'|'+it.unit,x=crossedItems.has(key);return`<div class="shop-item ${x?'shop-crossed':''}" onclick="toggleCross('${key}')"><div class="shop-dot"></div><span class="shop-name">${it.name}</span><span class="shop-qty">${fmtQty(it.qty)}</span><span class="shop-unit">${it.unit}</span></div>`;}).join('')}
     <div style="height:20px"></div>`;
+}
+
+
+function copyList() {
+  const items = computeShopping();
+  const text = items.map(it => `${it.name} ${fmtQty(it.qty)} ${it.unit}`).join('\n');
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.getElementById('copy-btn');
+    if (btn) { btn.textContent = '✓ Copié'; setTimeout(() => { btn.innerHTML = '&#128203; Copier'; }, 2000); }
+  }).catch(() => showToast('Copie non supportée'));
 }
 
 function renderSettings() {
@@ -502,18 +514,17 @@ window.closeModal=closeModal;
 // Boot
 if ('serviceWorker' in navigator) window.addEventListener('load', ()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
 
-// Clear corrupted localStorage from old encoding bugs
-const _raw = localStorage.getItem('recipes');
-if (_raw && /Ã|Â/.test(_raw)) { localStorage.removeItem('recipes'); }
-
-loadLocal();
-render();
-
-// GitHub is always source of truth on startup
+// GitHub is the only source of truth — never use localStorage for recipes
 if (getToken()) {
+  // Show loading state immediately
+  render();
   loadFromGitHub().then(ok => {
-    if (ok) { render(); showToast('✓ Recettes synchronisées'); }
+    if (ok) { render(); }
+    else { showToast('✗ Impossible de charger les recettes'); }
   });
+} else {
+  // No token yet, nothing to show
+  render();
 }
 </script>
 </body>
