@@ -2,15 +2,15 @@
   "recipes": [
     {
       "id": "1778667308192",
-      "name": "pâtes",
+      "name": "p\u00e2tes",
       "ingredients": [
         {
-          "name": "légume",
+          "name": "l\u00c3\u00a9gume",
           "qty": 2,
           "unit": "g"
         },
         {
-          "name": "fêta",
+          "name": "f\u00c3\u00aata",
           "qty": 200,
           "unit": "g"
         }
