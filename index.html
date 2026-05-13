@@ -215,49 +215,51 @@ const getToken = () => localStorage.getItem('gh_token') || '';
 const setToken = t => localStorage.setItem('gh_token', t.trim());
 
 // ── GitHub ───────────────────────────────────────────────────────────────────
-async function ghFetch(method, body) {
-  const token = getToken();
-  if (!token) return null;
-  const opts = { method, headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json', 'X-GitHub-Api-Version': '2022-11-28' } };
-  if (body) opts.body = JSON.stringify(body);
-  const r = await fetch(GH_API, opts);
-  if (!r.ok) throw new Error(r.status);
-  return r.json();
-}
-
-function b64decode(str) {
-  const bin = atob(str.replace(/\n/g, ''));
-  const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
-  return new TextDecoder().decode(bytes);
-}
-function b64encode(str) {
-  const bytes = new TextEncoder().encode(str);
-  let bin = '';
-  bytes.forEach(b => bin += String.fromCharCode(b));
-  return btoa(bin);
+function ghHeaders() {
+  return {
+    Authorization: `Bearer ${getToken()}`,
+    'X-GitHub-Api-Version': '2022-11-28',
+    'Content-Type': 'application/json'
+  };
 }
 
 async function loadFromGitHub() {
   try {
-    const data = await ghFetch('GET');
-    if (!data) return false;
-    ghSha = data.sha;
-    const json = JSON.parse(b64decode(data.content));
+    if (!getToken()) return false;
+    // 1. Get SHA via API
+    const meta = await fetch(GH_API, { headers: ghHeaders() });
+    if (!meta.ok) throw new Error(meta.status);
+    const metaJson = await meta.json();
+    ghSha = metaJson.sha;
+    // 2. Fetch raw content to avoid any base64 decoding issue
+    const raw = await fetch(
+      `https://raw.githubusercontent.com/${GH_OWNER}/${GH_REPO}/main/${GH_FILE}?t=${Date.now()}`,
+      { cache: 'no-store' }
+    );
+    if (!raw.ok) throw new Error(raw.status);
+    const json = await raw.json();
     recipes = json.recipes || [];
     localStorage.setItem('recipes', JSON.stringify(recipes));
     return true;
-  } catch(e) { return false; }
+  } catch(e) { console.error('loadFromGitHub', e); return false; }
 }
 
 async function saveToGitHub() {
   if (!getToken()) return false;
   try {
-    const content = b64encode(JSON.stringify({ recipes }, null, 2));
+    const jsonStr = JSON.stringify({ recipes }, null, 2);
+    // Encode UTF-8 string to base64 without any mangling
+    const bytes = new TextEncoder().encode(jsonStr);
+    let bin = '';
+    bytes.forEach(b => bin += String.fromCharCode(b));
+    const content = btoa(bin);
     const body = { message: 'Mise a jour recettes', content, ...(ghSha ? { sha: ghSha } : {}) };
-    const data = await ghFetch('PUT', body);
+    const r = await fetch(GH_API, { method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body) });
+    if (!r.ok) throw new Error(r.status);
+    const data = await r.json();
     ghSha = data.content.sha;
     return true;
-  } catch(e) { return false; }
+  } catch(e) { console.error('saveToGitHub', e); return false; }
 }
 
 async function syncNow() {
@@ -468,14 +470,22 @@ function showModal() { document.getElementById('modal').classList.remove('hidden
 function closeModal(e) { if (e&&e.target!==document.getElementById('modal')) return; document.getElementById('modal').classList.add('hidden'); }
 window.closeModal=closeModal;
 
-// ── Boot ─────────────────────────────────────────────────────────────────────
+// Boot
 if ('serviceWorker' in navigator) window.addEventListener('load', ()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
+
+// Clear corrupted localStorage from old encoding bugs
+const _raw = localStorage.getItem('recipes');
+if (_raw && /Ã|Â/.test(_raw)) { localStorage.removeItem('recipes'); }
 
 loadLocal();
 render();
 
-// Sync on startup silently
-if (getToken()) loadFromGitHub().then(ok => { if (ok) { render(); showToast('✓ Recettes synchronisées'); } });
+// GitHub is always source of truth on startup
+if (getToken()) {
+  loadFromGitHub().then(ok => {
+    if (ok) { render(); showToast('✓ Recettes synchronisées'); }
+  });
+}
 </script>
 </body>
 </html>
