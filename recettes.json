@@ -1,3 +1,15 @@
 {
-  "recipes": []
+  "recipes": [
+    {
+      "id": "1778666965972",
+      "name": "Pâtes",
+      "ingredients": [
+        {
+          "name": "légume",
+          "qty": 2,
+          "unit": "g"
+        }
+      ]
+    }
+  ]
 }
