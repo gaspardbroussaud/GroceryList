@@ -30,6 +30,17 @@
           "unit": "unité(s)"
         }
       ]
+    },
+    {
+      "id": "1780053474388",
+      "name": "Tacos Smash Burger",
+      "ingredients": [
+        {
+          "name": "Pain Burger",
+          "qty": 1,
+          "unit": "unité(s)"
+        }
+      ]
     }
   ]
 }
