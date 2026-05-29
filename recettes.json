@@ -44,6 +44,46 @@
           "name": "Concentré de Tomate",
           "qty": 1,
           "unit": "unité(s)"
+        },
+        {
+          "name": "Cheveux d'anges",
+          "qty": 700,
+          "unit": "g"
+        },
+        {
+          "name": "Fromage Burger",
+          "qty": 6,
+          "unit": "tranche(s)"
+        },
+        {
+          "name": "Laitue",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Oignon",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Avocat",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Persil",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Paprika",
+          "qty": 1,
+          "unit": "pincée(s)"
+        },
+        {
+          "name": "Jus de Citron",
+          "qty": 1,
+          "unit": "pincée(s)"
         }
       ]
     },
