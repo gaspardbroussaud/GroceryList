@@ -188,6 +188,47 @@
           "unit": "unité(s)"
         }
       ]
+    },
+    {
+      "id": "1780054508788",
+      "name": "Riz Cantonais",
+      "ingredients": [
+        {
+          "name": "Poivron",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Cheveux d'anges",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Oignon",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Petit pois",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "oeufs",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Echalottes",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Riz Basmati",
+          "qty": 1,
+          "unit": "unité(s)"
+        }
+      ]
     }
   ]
 }
