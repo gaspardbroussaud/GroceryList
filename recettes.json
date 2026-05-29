@@ -23,6 +23,11 @@
           "name": "Fêta",
           "qty": 200,
           "unit": "g"
+        },
+        {
+          "name": "Tomates Cerise",
+          "qty": 1,
+          "unit": "unité(s)"
         }
       ]
     }
