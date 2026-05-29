@@ -41,6 +41,82 @@
           "unit": "unité(s)"
         }
       ]
+    },
+    {
+      "id": "1780053856758",
+      "name": "Shawarma",
+      "ingredients": [
+        {
+          "name": "Pain Pita",
+          "qty": 5,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Poulet filet",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Epices",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Jus de Citron",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Yaourt Grec petit pot",
+          "qty": 3,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Concentré de tomate",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Gochugan pasta + Siracha",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Ail",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Aneth",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Mélasse Grenada",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Persil",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Oignon Rouge",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Tomate grosse",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Pomme de terre",
+          "qty": 1,
+          "unit": "kg"
+        }
+      ]
     }
   ]
 }
