@@ -117,6 +117,32 @@
           "unit": "kg"
         }
       ]
+    },
+    {
+      "id": "1780054035178",
+      "name": "Paillasson + Karaage",
+      "ingredients": [
+        {
+          "name": "Courgettes",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Pomme Terre",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Carrottes",
+          "qty": 3,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Poulet",
+          "qty": 1,
+          "unit": "unité(s)"
+        }
+      ]
     }
   ]
 }
