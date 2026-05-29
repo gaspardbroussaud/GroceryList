@@ -39,6 +39,11 @@
           "name": "Pain Burger",
           "qty": 1,
           "unit": "unité(s)"
+        },
+        {
+          "name": "Concentré de Tomate",
+          "qty": 1,
+          "unit": "unité(s)"
         }
       ]
     },
