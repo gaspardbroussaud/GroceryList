@@ -33,11 +33,11 @@
     },
     {
       "id": "1780053474388",
-      "name": "Tacos Smash Burger",
+      "name": "Smash Burger",
       "ingredients": [
         {
-          "name": "Pain Burger",
-          "qty": 1,
+          "name": "Pain Burger (petit)",
+          "qty": 6,
           "unit": "unité(s)"
         },
         {
