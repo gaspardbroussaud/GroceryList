@@ -155,6 +155,11 @@
           "name": "Pomme de terre",
           "qty": 500,
           "unit": "g"
+        },
+        {
+          "name": "Siracha",
+          "qty": 1,
+          "unit": "unité(s)"
         }
       ]
     },
