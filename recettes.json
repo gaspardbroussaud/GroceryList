@@ -102,14 +102,9 @@
           "unit": "unité(s)"
         },
         {
-          "name": "Epices",
-          "qty": 1,
-          "unit": "unité(s)"
-        },
-        {
           "name": "Jus de Citron",
           "qty": 1,
-          "unit": "unité(s)"
+          "unit": "pincée(s)"
         },
         {
           "name": "Yaourt Grec petit pot",
@@ -119,10 +114,10 @@
         {
           "name": "Concentré de tomate",
           "qty": 1,
-          "unit": "unité(s)"
+          "unit": "pincée(s)"
         },
         {
-          "name": "Gochugan pasta + Siracha",
+          "name": "Gochugan pasta",
           "qty": 1,
           "unit": "unité(s)"
         },
@@ -158,8 +153,8 @@
         },
         {
           "name": "Pomme de terre",
-          "qty": 1,
-          "unit": "kg"
+          "qty": 500,
+          "unit": "g"
         }
       ]
     },
