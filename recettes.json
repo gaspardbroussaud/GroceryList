@@ -62,7 +62,7 @@
         },
         {
           "name": "Oignon",
-          "qty": 1,
+          "qty": 2,
           "unit": "unité(s)"
         },
         {
@@ -84,6 +84,31 @@
           "name": "Jus de Citron",
           "qty": 1,
           "unit": "pincée(s)"
+        },
+        {
+          "name": "Moutarde",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Ketchup",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Mayonnaise",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Huile d’olive",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Ail en poudre",
+          "qty": 1,
+          "unit": "tsp"
         }
       ]
     },
@@ -322,6 +347,11 @@
         },
         {
           "name": "Mélange mexicain",
+          "qty": 1,
+          "unit": "pincée(s)"
+        },
+        {
+          "name": "Paprika",
           "qty": 1,
           "unit": "pincée(s)"
         }
