@@ -215,7 +215,7 @@
         },
         {
           "name": "Cheveux d'anges",
-          "qty": 200,
+          "qty": 300,
           "unit": "g"
         },
         {
@@ -242,6 +242,16 @@
           "name": "Riz Basmati",
           "qty": 200,
           "unit": "g"
+        },
+        {
+          "name": "Sauce soja salé",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Jambon",
+          "qty": 2,
+          "unit": "tranche(s)"
         }
       ]
     },
