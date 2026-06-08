@@ -183,9 +183,24 @@
           "unit": "unité(s)"
         },
         {
-          "name": "Poulet",
+          "name": "Maïzena",
+          "qty": 3,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Œuf",
           "qty": 1,
           "unit": "unité(s)"
+        },
+        {
+          "name": "Farine",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Parmesan",
+          "qty": 150,
+          "unit": "g"
         }
       ]
     },
