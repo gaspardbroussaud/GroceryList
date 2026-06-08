@@ -305,6 +305,27 @@
           "unit": "tbsp"
         }
       ]
+    },
+    {
+      "id": "1780937777560",
+      "name": "Frites maison",
+      "ingredients": [
+        {
+          "name": "Pomme de terre",
+          "qty": 500,
+          "unit": "g"
+        },
+        {
+          "name": "Mélange italien",
+          "qty": 1,
+          "unit": "pincée(s)"
+        },
+        {
+          "name": "Mélange mexicain",
+          "qty": 1,
+          "unit": "pincée(s)"
+        }
+      ]
     }
   ]
 }
