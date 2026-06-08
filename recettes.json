@@ -215,8 +215,8 @@
         },
         {
           "name": "Cheveux d'anges",
-          "qty": 1,
-          "unit": "unité(s)"
+          "qty": 200,
+          "unit": "g"
         },
         {
           "name": "Oignon",
@@ -229,19 +229,19 @@
           "unit": "unité(s)"
         },
         {
-          "name": "oeufs",
+          "name": "Œuf",
           "qty": 2,
           "unit": "unité(s)"
         },
         {
           "name": "Echalottes",
-          "qty": 2,
+          "qty": 1,
           "unit": "unité(s)"
         },
         {
           "name": "Riz Basmati",
-          "qty": 1,
-          "unit": "unité(s)"
+          "qty": 200,
+          "unit": "g"
         }
       ]
     },
