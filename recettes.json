@@ -244,6 +244,57 @@
           "unit": "unité(s)"
         }
       ]
+    },
+    {
+      "id": "1780937540229",
+      "name": "Karaage",
+      "ingredients": [
+        {
+          "name": "Poulet filet",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Maïzena",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Farine",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Œuf",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Sauce soja salé",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Miel",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Cassonade",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Ketchup",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Huile d’olive",
+          "qty": 1,
+          "unit": "tbsp"
+        }
+      ]
     }
   ]
 }
