@@ -356,6 +356,62 @@
           "unit": "pincée(s)"
         }
       ]
+    },
+    {
+      "id": "1780938261431",
+      "name": "Boulettes de soja sauce crème champignons",
+      "ingredients": [
+        {
+          "name": "Médaillon de soja",
+          "qty": 100,
+          "unit": "g"
+        },
+        {
+          "name": "Maïzena",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Farine",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Échalote",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Ail en poudre",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Champignon",
+          "qty": 4,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Persil",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Crème fraiche",
+          "qty": 50,
+          "unit": "g"
+        },
+        {
+          "name": "Oignon",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Sauce soja sucrée",
+          "qty": 1,
+          "unit": "tbsp"
+        }
+      ]
     }
   ]
 }
