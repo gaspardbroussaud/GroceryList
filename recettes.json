@@ -473,6 +473,42 @@
           "unit": "tbsp"
         }
       ]
+    },
+    {
+      "id": "1784564546361",
+      "name": "Linguine champignons saumon fumé",
+      "ingredients": [
+        {
+          "name": "Saumon fumé",
+          "qty": 4,
+          "unit": "tranche(s)"
+        },
+        {
+          "name": "Linguine",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Champignons",
+          "qty": 8,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Crème fraîche",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Ciboulette",
+          "qty": 1,
+          "unit": "pincée(s)"
+        },
+        {
+          "name": "Oignon",
+          "qty": 1,
+          "unit": "unité(s)"
+        }
+      ]
     }
   ]
 }
