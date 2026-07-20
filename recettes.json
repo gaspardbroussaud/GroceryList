@@ -509,6 +509,42 @@
           "unit": "unité(s)"
         }
       ]
+    },
+    {
+      "id": "1784567288799",
+      "name": "Nouilles sautées au bœuf",
+      "ingredients": [
+        {
+          "name": "Nouilles de riz",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Filet de bœuf",
+          "qty": 200,
+          "unit": "g"
+        },
+        {
+          "name": "Oignon",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Sauce soja",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "name": "Miel",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Maïzena",
+          "qty": 1,
+          "unit": "tbsp"
+        }
+      ]
     }
   ]
 }
