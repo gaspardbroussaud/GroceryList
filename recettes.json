@@ -412,6 +412,67 @@
           "unit": "tbsp"
         }
       ]
+    },
+    {
+      "id": "1784564409439",
+      "name": "Lasagnes froides",
+      "ingredients": [
+        {
+          "name": "Lasagne",
+          "qty": 6,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Courgette",
+          "qty": 0.5,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Aubergine",
+          "qty": 0.5,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Tomate cerise",
+          "qty": 6,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Échalote",
+          "qty": 0.5,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Pot de ricotta",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Miel",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Huile d’olive",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Persil",
+          "qty": 1,
+          "unit": "pincée(s)"
+        },
+        {
+          "name": "Menthe",
+          "qty": 1,
+          "unit": "pincée(s)"
+        },
+        {
+          "name": "Pesto rouge",
+          "qty": 1,
+          "unit": "tbsp"
+        }
+      ]
     }
   ]
 }
