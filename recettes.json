@@ -540,6 +540,37 @@
           "unit": "tbsp"
         }
       ]
+    },
+    {
+      "id": "1785606817060",
+      "name": "Aubergine grillée",
+      "ingredients": [
+        {
+          "name": "Aubergine",
+          "qty": 6,
+          "unit": "tranche(s)"
+        },
+        {
+          "name": "Tomate séchée",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Olives noires",
+          "qty": 6,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Paprika",
+          "qty": 1,
+          "unit": "pincée(s)"
+        },
+        {
+          "name": "Basilic",
+          "qty": 1,
+          "unit": "pincée(s)"
+        }
+      ]
     }
   ]
 }
