@@ -615,6 +615,11 @@
           "name": "Ail en poudre",
           "qty": 1,
           "unit": "pincée(s)"
+        },
+        {
+          "name": "Galette",
+          "qty": 4,
+          "unit": "unité(s)"
         }
       ]
     }
