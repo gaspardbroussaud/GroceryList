@@ -571,6 +571,52 @@
           "unit": "pincée(s)"
         }
       ]
+    },
+    {
+      "id": "1785606972424",
+      "name": "Kefta",
+      "ingredients": [
+        {
+          "name": "Cheveux d’ange",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Oignon",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Bicarbonate alimentaire",
+          "qty": 1,
+          "unit": "tsp"
+        },
+        {
+          "name": "Piment doux",
+          "qty": 1,
+          "unit": "tsp"
+        },
+        {
+          "name": "Farine",
+          "qty": 40,
+          "unit": "g"
+        },
+        {
+          "name": "Eau gazeuse",
+          "qty": 30,
+          "unit": "ml"
+        },
+        {
+          "name": "Origan",
+          "qty": 1,
+          "unit": "pincée(s)"
+        },
+        {
+          "name": "Ail en poudre",
+          "qty": 1,
+          "unit": "pincée(s)"
+        }
+      ]
     }
   ]
 }
