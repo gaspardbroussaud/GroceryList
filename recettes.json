@@ -687,6 +687,11 @@
           "name": "Basilic",
           "qty": 2,
           "unit": "pincée(s)"
+        },
+        {
+          "name": "Lasagne",
+          "qty": 3,
+          "unit": "unité(s)"
         }
       ]
     }
