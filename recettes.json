@@ -725,6 +725,47 @@
           "unit": "pincée(s)"
         }
       ]
+    },
+    {
+      "id": "1786048110891",
+      "name": "Filet de limande sauce moutarde",
+      "ingredients": [
+        {
+          "name": "Filet de limande",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Petit poids carottes",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Échalote",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Vinaigre de xérès (ou de vin rouge)",
+          "qty": 5,
+          "unit": "cl"
+        },
+        {
+          "name": "Crème liquide (ou fleurette)",
+          "qty": 40,
+          "unit": "cl"
+        },
+        {
+          "name": "Moutarde",
+          "qty": 10,
+          "unit": "g"
+        },
+        {
+          "name": "Moutarde à l’ancienne",
+          "qty": 1,
+          "unit": "tbsp"
+        }
+      ]
     }
   ]
 }
