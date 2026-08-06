@@ -692,6 +692,11 @@
           "name": "Lasagne",
           "qty": 3,
           "unit": "unité(s)"
+        },
+        {
+          "name": "Carotte",
+          "qty": 1,
+          "unit": "unité(s)"
         }
       ]
     },
