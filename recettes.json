@@ -622,6 +622,22 @@
           "unit": "unité(s)"
         }
       ]
+    },
+    {
+      "id": "1786042265184",
+      "name": "Chipolatas courgettes",
+      "ingredients": [
+        {
+          "name": "Chipolatas",
+          "qty": 6,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Courgette",
+          "qty": 2,
+          "unit": "unité(s)"
+        }
+      ]
     }
   ]
 }
