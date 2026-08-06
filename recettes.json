@@ -694,6 +694,32 @@
           "unit": "unité(s)"
         }
       ]
+    },
+    {
+      "id": "1786047376310",
+      "name": "Béchamel",
+      "ingredients": [
+        {
+          "name": "Beurre",
+          "qty": 30,
+          "unit": "g"
+        },
+        {
+          "name": "Farine",
+          "qty": 30,
+          "unit": "g"
+        },
+        {
+          "name": "Lait",
+          "qty": 45,
+          "unit": "cl"
+        },
+        {
+          "name": "Sel",
+          "qty": 1,
+          "unit": "pincée(s)"
+        }
+      ]
     }
   ]
 }
