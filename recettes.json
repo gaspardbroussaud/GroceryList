@@ -766,6 +766,47 @@
           "unit": "tbsp"
         }
       ]
+    },
+    {
+      "id": "1786048506592",
+      "name": "Crumble courgettes, chèvre et lardons",
+      "ingredients": [
+        {
+          "name": "Courgette",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Oignon",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Farine",
+          "qty": 75,
+          "unit": "g"
+        },
+        {
+          "name": "Lardons",
+          "qty": 50,
+          "unit": "g"
+        },
+        {
+          "name": "Beurre",
+          "qty": 60,
+          "unit": "g"
+        },
+        {
+          "name": "Fromage de chèvre",
+          "qty": 75,
+          "unit": "g"
+        },
+        {
+          "name": "Parmesan",
+          "qty": 75,
+          "unit": "g"
+        }
+      ]
     }
   ]
 }
