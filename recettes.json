@@ -638,6 +638,57 @@
           "unit": "unité(s)"
         }
       ]
+    },
+    {
+      "id": "1786047307350",
+      "name": "Lasagnes de bœuf",
+      "ingredients": [
+        {
+          "name": "Cheveux d’ange",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Béchamel",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Tomate",
+          "qty": 5,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Oignon",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Gousse d’ail",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Huile d’olive",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Paprika",
+          "qty": 1,
+          "unit": "pincée(s)"
+        },
+        {
+          "name": "Persil",
+          "qty": 2,
+          "unit": "pincée(s)"
+        },
+        {
+          "name": "Basilic",
+          "qty": 2,
+          "unit": "pincée(s)"
+        }
+      ]
     }
   ]
 }
