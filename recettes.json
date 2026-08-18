@@ -36,8 +36,8 @@
       "name": "Smash Burger",
       "ingredients": [
         {
-          "name": "Pain Burger",
-          "qty": 4,
+          "name": "Pain Burger (petit)",
+          "qty": 6,
           "unit": "unité(s)"
         },
         {
@@ -809,22 +809,22 @@
       ]
     },
     {
-      "id": "1787075814186",
+      "id": "1787076072260",
       "name": "Pavé de saumon",
       "ingredients": [
         {
-          "name": "Saumon",
+          "name": "Pavé de saumon",
           "qty": 2,
           "unit": "unité(s)"
         },
         {
-          "name": "Huile d’olive",
-          "qty": 2,
-          "unit": "tbsp"
-        },
-        {
           "name": "Sel",
           "qty": 3,
+          "unit": "pincée(s)"
+        },
+        {
+          "name": "Huile d'olive",
+          "qty": 2,
           "unit": "pincée(s)"
         },
         {
