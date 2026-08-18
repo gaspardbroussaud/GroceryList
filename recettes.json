@@ -36,8 +36,8 @@
       "name": "Smash Burger",
       "ingredients": [
         {
-          "name": "Pain Burger (petit)",
-          "qty": 6,
+          "name": "Pain Burger",
+          "qty": 4,
           "unit": "unité(s)"
         },
         {
