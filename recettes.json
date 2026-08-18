@@ -807,6 +807,37 @@
           "unit": "g"
         }
       ]
+    },
+    {
+      "id": "1787075814186",
+      "name": "Pavé de saumon",
+      "ingredients": [
+        {
+          "name": "Saumon",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Huile d’olive",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Sel",
+          "qty": 3,
+          "unit": "pincée(s)"
+        },
+        {
+          "name": "Persil",
+          "qty": 2,
+          "unit": "pincée(s)"
+        },
+        {
+          "name": "Mélange italien",
+          "qty": 2,
+          "unit": "pincée(s)"
+        }
+      ]
     }
   ]
 }
