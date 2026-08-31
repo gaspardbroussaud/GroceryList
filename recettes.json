@@ -543,6 +543,11 @@
           "name": "oignon nouveau vert",
           "qty": 1,
           "unit": "unité(s)"
+        },
+        {
+          "name": "Poivron",
+          "qty": 1,
+          "unit": "unité(s)"
         }
       ]
     },
