@@ -810,6 +810,11 @@
           "name": "Parmesan",
           "qty": 75,
           "unit": "g"
+        },
+        {
+          "name": "Pâte brisée",
+          "qty": 1,
+          "unit": "unité(s)"
         }
       ]
     },
