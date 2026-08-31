@@ -707,6 +707,21 @@
           "name": "Carotte",
           "qty": 1,
           "unit": "unité(s)"
+        },
+        {
+          "name": "Parmesan",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Mozzarella râpée",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "name": "Pulpe de tomate",
+          "qty": 1,
+          "unit": "unité(s)"
         }
       ]
     },
