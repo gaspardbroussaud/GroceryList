@@ -635,17 +635,22 @@
     },
     {
       "id": "1786042265184",
-      "name": "Chipolatas courgettes",
+      "name": "Chipolatas courgettes frites",
       "ingredients": [
         {
-          "name": "Chipolatas",
-          "qty": 6,
+          "name": "Saucisses de toulouse",
+          "qty": 4,
           "unit": "unité(s)"
         },
         {
           "name": "Courgette",
           "qty": 2,
           "unit": "unité(s)"
+        },
+        {
+          "name": "Frites",
+          "qty": 400,
+          "unit": "g"
         }
       ]
     },
