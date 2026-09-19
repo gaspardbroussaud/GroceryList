@@ -886,6 +886,16 @@
           "name": "Mélange italien",
           "qty": 2,
           "unit": "pincée(s)"
+        },
+        {
+          "name": "Haricot verts",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Pomme de terre rissolées",
+          "qty": 250,
+          "unit": "g"
         }
       ]
     }
