@@ -993,6 +993,21 @@
           "name": "Comté Râpé ou à raper",
           "qty": 80,
           "unit": "g"
+        },
+        {
+          "name": "échalote",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "parmesan",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "oignon rouge",
+          "qty": 1,
+          "unit": "unité(s)"
         }
       ]
     }
