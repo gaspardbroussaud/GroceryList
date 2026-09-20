@@ -954,6 +954,47 @@
           "unit": "pincée(s)"
         }
       ]
+    },
+    {
+      "id": "1789936493504",
+      "name": "Gratin Dauphinois",
+      "ingredients": [
+        {
+          "name": "Tête d’ail",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Pomme de terre",
+          "qty": 1.5,
+          "unit": "kg"
+        },
+        {
+          "name": "Crème Liquide",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Crème Fraiche",
+          "qty": 2,
+          "unit": "tsp"
+        },
+        {
+          "name": "Beurre",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Noix de Muscade",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Comté Râpé ou à raper",
+          "qty": 80,
+          "unit": "g"
+        }
+      ]
     }
   ]
 }
