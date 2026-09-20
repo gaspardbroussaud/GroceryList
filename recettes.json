@@ -898,6 +898,62 @@
           "unit": "g"
         }
       ]
+    },
+    {
+      "id": "1789936003455",
+      "name": "Pâte à la sardine et à l’ail",
+      "ingredients": [
+        {
+          "name": "Purée de tomate",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Olives Noires",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Concentré de tomate",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Linguine ou Torti",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "2 gousses d’ail",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "échalote",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "oignon rouge",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Boîte de sardines",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Persil",
+          "qty": 1,
+          "unit": "pincée(s)"
+        },
+        {
+          "name": "basilic",
+          "qty": 1,
+          "unit": "pincée(s)"
+        }
+      ]
     }
   ]
 }
