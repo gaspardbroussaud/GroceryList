@@ -896,6 +896,11 @@
           "name": "Pomme de terre rissolées",
           "qty": 250,
           "unit": "g"
+        },
+        {
+          "name": "Parmesan",
+          "qty": 100,
+          "unit": "g"
         }
       ]
     },
