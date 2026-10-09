@@ -742,6 +742,11 @@
           "name": "Pulpe de tomate",
           "qty": 1,
           "unit": "unité(s)"
+        },
+        {
+          "name": "Céleri",
+          "qty": 1,
+          "unit": "unité(s)"
         }
       ]
     },
