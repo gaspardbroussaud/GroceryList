@@ -1020,6 +1020,77 @@
           "unit": "unité(s)"
         }
       ]
+    },
+    {
+      "id": "1791829267975",
+      "name": "Soupe potimarron carottes",
+      "ingredients": [
+        {
+          "name": "Potimarron",
+          "qty": 600,
+          "unit": "g"
+        },
+        {
+          "name": "Carottes",
+          "qty": 300,
+          "unit": "g"
+        },
+        {
+          "name": "Poireau",
+          "qty": 150,
+          "unit": "g"
+        },
+        {
+          "name": "Oignon",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Gousse d'ail",
+          "qty": 3,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Gingembre",
+          "qty": 20,
+          "unit": "g"
+        },
+        {
+          "name": "Lait de coco",
+          "qty": 200,
+          "unit": "ml"
+        },
+        {
+          "name": "Bouillon de légumes",
+          "qty": 700,
+          "unit": "ml"
+        },
+        {
+          "name": "Curry doux",
+          "qty": 2,
+          "unit": "tsp"
+        },
+        {
+          "name": "Curcuma",
+          "qty": 1,
+          "unit": "tsp"
+        },
+        {
+          "name": "Coriandre moulue",
+          "qty": 0.5,
+          "unit": "tsp"
+        },
+        {
+          "name": "Huile d'olive",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Jus de citron",
+          "qty": 1,
+          "unit": "tbsp"
+        }
+      ]
     }
   ]
 }
