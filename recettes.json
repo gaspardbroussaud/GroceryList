@@ -1091,6 +1091,72 @@
           "unit": "tbsp"
         }
       ]
+    },
+    {
+      "id": "1794246407856",
+      "name": "Raviolis tournés",
+      "ingredients": [
+        {
+          "name": "Feuille de raviolis Wonton",
+          "qty": 30,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Poulet",
+          "qty": 400,
+          "unit": "g"
+        },
+        {
+          "name": "Gousse d’ail",
+          "qty": 2,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Sauce soja claire",
+          "qty": 2,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Saké pour cuisine",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Gingembre",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Poireau",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Cébette",
+          "qty": 3,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Œuf",
+          "qty": 1,
+          "unit": "unité(s)"
+        },
+        {
+          "name": "Maïzena",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Huile de tournesols",
+          "qty": 1,
+          "unit": "tbsp"
+        },
+        {
+          "name": "Huile de sésame grillé",
+          "qty": 1,
+          "unit": "tbsp"
+        }
+      ]
     }
   ]
 }
