@@ -1094,7 +1094,7 @@
     },
     {
       "id": "1794246407856",
-      "name": "Raviolis tournés",
+      "name": "Raviolis tournés + soupe",
       "ingredients": [
         {
           "name": "Feuille de raviolis Wonton",
@@ -1155,6 +1155,11 @@
           "name": "Huile de sésame grillé",
           "qty": 1,
           "unit": "tbsp"
+        },
+        {
+          "name": "Velouté 12 légumes",
+          "qty": 1,
+          "unit": "unité(s)"
         }
       ]
     }
